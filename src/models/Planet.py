@@ -4,17 +4,17 @@ from sqlalchemy import String
 
 
 
-class Character(db.Model):
-    __tablename__ = "character"
+class Planet(db.Model):
+    __tablename__ = "planet"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    character_name: Mapped[str] = mapped_column(String(120), unique=True, nullable=False)
+    Planet_name: Mapped[str] = mapped_column(String(120), unique=True, nullable=False)
     
 
 
     def serialize(self):
         return {
             "id": self.id,
-            "character_name":self.character_name
+            "Planet_name":self.Planet_name
            
         }

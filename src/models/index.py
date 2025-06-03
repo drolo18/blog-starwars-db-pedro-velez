@@ -1,2 +1,5 @@
 from models.User import User
-from models.Loging import Loging
+from models.Login import Login
+from models.Character import Character
+from models.Planet import Planet
+from models.Favourites import Favourite
