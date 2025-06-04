@@ -25,5 +25,4 @@ class User(db.Model):
             "last_name": self.last_name,
             "email": self.email,
             "date": self.date
-           
         }
