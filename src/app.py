@@ -11,6 +11,10 @@ from admin import setup_admin
 from models.User import User
 from database.db import db
 from models.index import *
+import routes.user as api_user
+from routes.favourite import api as favourite_api
+from routes.chararter import api as character_api
+from routes.planet import api as planet_api
 #from models import Person
 
 app = Flask(__name__)
@@ -38,14 +42,11 @@ def handle_invalid_usage(error):
 def sitemap():
     return generate_sitemap(app)
 
-@app.route('/user', methods=['GET'])
-def handle_hello():
-
-    response_body = {
-        "msg": "Hello, this is your GET /user response "
-    }
-
-    return jsonify(response_body), 200
+#ROUTES
+app.register_blueprint(api_user.api, url_prefix='/api/user')
+app.register_blueprint(favourite_api, url_prefix='/api/favourite')
+app.register_blueprint(character_api, url_prefix='/api/character')
+app.register_blueprint(planet_api, url_prefix='/api/planet')
 
 # this only runs if `$ python src/app.py` is executed
 if __name__ == '__main__':

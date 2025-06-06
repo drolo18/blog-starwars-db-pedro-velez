@@ -10,8 +10,8 @@ class Favourite(db.Model):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     user_id: Mapped[int] = mapped_column(ForeignKey("user.id"))
-    character_id: Mapped[int] = mapped_column(ForeignKey("character.id"))
-    planet_id: Mapped[int] = mapped_column(ForeignKey("planet.id"))
+    character_id: Mapped[int] = mapped_column(ForeignKey("character.character_id"))
+    planet_id: Mapped[int] = mapped_column(ForeignKey("planet.planet_id"))
     login_id: Mapped[int] = mapped_column(ForeignKey("login.id"))
     
 
